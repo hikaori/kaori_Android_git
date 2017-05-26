@@ -15,12 +15,20 @@ public class QuizActivity extends AppCompatActivity {
     private Button mNextButton;
     private int mCurrentQuestionIndex = 0;
 
-    Questions Q1 = new Questions(R.string.question_text1, true);
-    Questions Q2 = new Questions(R.string.question_text2, true);
-    Questions Q3 = new Questions(R.string.question_text3, true);
-    Questions Q4 = new Questions(R.string.question_text4, true);
-    Questions Q5 = new Questions(R.string.question_text5, true);
-    private Questions[] mQuestionBank = {Q1, Q2, Q3, Q4, Q5};
+    private Questions[] mQuestionBank = new Questions[] {
+            new Questions(R.string.question_text1, false),
+            new Questions(R.string.question_text2, true),
+            new Questions(R.string.question_text3, true),
+            new Questions(R.string.question_text4, true),
+            new Questions(R.string.question_text5, false)
+    };
+///   basic style array instantiate code.
+//    Questions Q1 = new Questions(R.string.question_text1, true);
+//    Questions Q2 = new Questions(R.string.question_text2, true);
+//    Questions Q3 = new Questions(R.string.question_text3, true);
+//    Questions Q4 = new Questions(R.string.question_text4, true);
+//    Questions Q5 = new Questions(R.string.question_text5, true);
+//    private Questions[] mQuestionBank = {Q1, Q2, Q3, Q4, Q5};
 //    String[] wordArray = {"Apple", "Orange", "Pear", "Kiwi", "Banana"}; // Array instantiation reference
 
 
@@ -69,8 +77,6 @@ public class QuizActivity extends AppCompatActivity {
                 if (mCurrentQuestionIndex < 0) {
                     mCurrentQuestionIndex = mQuestionBank.length - 1;
                 }
-
-                mCurrentQuestionIndex = (mCurrentQuestionIndex + 1) % mQuestionBank.length;
                 updateQuestion();
             }
         });
