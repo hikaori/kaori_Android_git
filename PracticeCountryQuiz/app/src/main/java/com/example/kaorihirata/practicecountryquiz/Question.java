@@ -31,5 +31,4 @@ public class Question {
         this.mAnswerTure = AnswerTure;
     }
 
-    //?? why dosent need "n"
 }

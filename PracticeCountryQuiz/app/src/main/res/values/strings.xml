@@ -11,4 +11,10 @@
     <string name="question_us">New-York is the capital of USA</string>
     <string name="question_korea">Seoul is the capital of South Korea.</string>
     <string name="question_france">Paris is the capital of France</string>
+    <string name="question_6">Question6</string>
+    <string name="question_7">Question7</string>
+    <string name="question_8">Question8</string>
+    <string name="question_9">Question9</string>
+    <string name="question_10">Question10</string>
+    <string name="percent">% you Correct!</string>
 </resources>
