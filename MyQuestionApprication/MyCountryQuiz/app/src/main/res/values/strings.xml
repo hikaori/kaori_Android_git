@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">CountryQuiz</string>
-    <string name="question_text">Is Donald Trump the president of USA?</string>
+    <string name="question_text1">Question1</string>
+    <string name="question_text2">Question2</string>
+    <string name="question_text3">Question3</string>
+    <string name="question_text4">Question4</string>
+    <string name="question_text5">Question5</string>
     <string name="true_button">True</string>
     <string name="false_button">False</string>
+    <string name="previous_button">Precious</string>
+    <string name="next_button">Next</string>
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect!</string>
 
