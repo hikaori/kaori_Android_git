@@ -29,7 +29,11 @@ public class QuizActivity extends AppCompatActivity {
         mFalseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(QuizActivity.this, R.string.incorrect_toast, Toast.LENGTH_LONG).show();
+                Toast t = Toast.makeText(QuizActivity.this, R.string.incorrect_toast, Toast.LENGTH_LONG);
+//                Toast t = new Toast(QuizActivity.this);
+//                t=Toast.makeText(QuizActivity.this, R.string.incorrect_toast, Toast.LENGTH_LONG);
+                t.show();
+                t.setGravity(0,0,0);
             }
         });
 
