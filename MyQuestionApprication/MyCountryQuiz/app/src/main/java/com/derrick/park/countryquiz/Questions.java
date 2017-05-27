@@ -16,4 +16,8 @@ public class Questions {
     public int getQuestionStringID() {
         return mQuestionStringID;
     }
+
+    public boolean isQuestionAnswer() {
+        return mQuestionAnswer;
+    }
 }
