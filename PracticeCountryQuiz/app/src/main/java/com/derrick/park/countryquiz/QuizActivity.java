@@ -26,8 +26,10 @@ public class QuizActivity extends AppCompatActivity {
     private int mCurrentIndex = 0;
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
+    private static final String CHEATER_INDEX = "cheater";
     private static final int REQUEST_CODE = 0;
     private int score = 0;
+    private int mCheatCount=0;
 
 
     @Override
@@ -37,6 +39,7 @@ public class QuizActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate(Bundle savedInstanceState) called.");
         if (savedInstanceState != null) {
             mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+            mIsCheater = savedInstanceState.getBoolean(CHEATER_INDEX, false);
         }
 
         mQuestionTextView = (TextView) findViewById(R.id.question_text);
@@ -62,37 +65,39 @@ public class QuizActivity extends AppCompatActivity {
         });
 
         mCheatButton = (Button) findViewById(R.id.cheat_button);
-        mCheatButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // start my cheatActivity
-                boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
-                Intent intent = CheatActivity.newIntent(QuizActivity.this, answerIsTrue);
+            mCheatButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // start my cheatActivity
+                    boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
+                    Intent intent = CheatActivity.newIntent(QuizActivity.this, answerIsTrue);
 
-                // request code is a user-defined integer that is sent to the child
-                // activity and then received back by the parent.
-                // It is used when an activity starts more than one type of child activity
-                // and needs to know who is reporting back.
-                startActivityForResult(intent, REQUEST_CODE);
-
-            }
-        });
+                    // request code is a user-defined integer that is sent to the child
+                    // activity and then received back by the parent.
+                    // It is used when an activity starts more than one type of child activity
+                    // and needs to know who is reporting back.
+                    startActivityForResult(intent, REQUEST_CODE);
+                }
+            });
 
         mNextButton = (Button) findViewById(R.id.next_button);
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mIsCheater = false;
-                mCurrentIndex = (mCurrentIndex + 1);
+//                if (!mIsCheater) {
+                    mCurrentIndex = (mCurrentIndex + 1);
 
-                if (mCurrentIndex == mQuestionBank.length) {
-                    double percentage = ((double) score / mQuestionBank.length) * 100;
-                    Toast.makeText(QuizActivity.this, "The score is " + percentage + "%", Toast.LENGTH_SHORT).show();
-                    score = 0;
-                }
-                mCurrentIndex %= mQuestionBank.length;
-                updateQuestion();
-                updateButtons(false);
+                    if (mCurrentIndex == mQuestionBank.length) {
+                        double percentage = ((double) score / mQuestionBank.length) * 100;
+                        Toast.makeText(QuizActivity.this, "The score is " + percentage + "%", Toast.LENGTH_SHORT).show();
+                        score = 0;
+                    }
+                    mCurrentIndex %= mQuestionBank.length;
+                    updateQuestion();
+                    updateButtons(false);
+//                } else {
+//                    Toast.makeText(QuizActivity.this, R.string.judgement_text, Toast.LENGTH_SHORT).show();
+//                }
             }
         });
     }
@@ -119,6 +124,7 @@ public class QuizActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         Log.i(TAG, "onSaveInstanceState");
         outState.putInt(KEY_INDEX, mCurrentIndex);
+        outState.putBoolean(CHEATER_INDEX, mIsCheater);
 
     }
 
