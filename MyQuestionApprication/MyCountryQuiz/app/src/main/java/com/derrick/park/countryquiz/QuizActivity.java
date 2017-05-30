@@ -1,5 +1,6 @@
 package com.derrick.park.countryquiz;
 
+import android.content.DialogInterface;
 import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -50,9 +51,7 @@ public class QuizActivity extends AppCompatActivity {
         mQuestionArea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCurrentQuestionIndex = (mCurrentQuestionIndex + 1) % mQuestionBank.length;
-                updateQuestion();
-                percentage();
+                goToNextQuestion();
             }
         });
 
@@ -95,10 +94,7 @@ public class QuizActivity extends AppCompatActivity {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCurrentQuestionIndex = (mCurrentQuestionIndex + 1) % mQuestionBank.length;
-                updateQuestion();
-                visibleButton(true);
-                percentage();
+                goToNextQuestion();
             }
         });
     }
@@ -130,6 +126,14 @@ public class QuizActivity extends AppCompatActivity {
 //            mPercentArea.setText("your score is"+percentage+"%");
             Toast.makeText(QuizActivity.this, "your score is"+percentage+" %", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void goToNextQuestion(){
+        mCurrentQuestionIndex = (mCurrentQuestionIndex + 1) % mQuestionBank.length;
+        updateQuestion();
+        visibleButton(true);
+        percentage();
+
     }
 
     // life cycle
@@ -170,7 +174,6 @@ public class QuizActivity extends AppCompatActivity {
         super.onDestroy();
         Log.d(TAG, "onDestroy");
     }
-
 }
 
 
