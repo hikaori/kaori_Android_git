@@ -1,20 +1,18 @@
 <resources>
-    <string name="app_name">PracticeCountryQuiz</string>
+    <string name="app_name">CountryQuiz</string>
     <string name="true_button">True</string>
     <string name="false_button">False</string>
+    <string name="next_button">Next ></string>
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect!</string>
-    <string name="next_button">Next ></string>
-    <string name="previous_button">,previous</string>
     <string name="question_canada">Vancouver is the capital of Canada.</string>
-    <string name="question_japan">Tokyou is the capital of Japan</string>
-    <string name="question_us">New-York is the capital of USA</string>
+    <string name="question_japan">Tokyo is the capital of Japan.</string>
+    <string name="question_usa">New-York is the capital of USA.</string>
     <string name="question_korea">Seoul is the capital of South Korea.</string>
-    <string name="question_france">Paris is the capital of France</string>
-    <string name="question_6">Question6</string>
-    <string name="question_7">Question7</string>
-    <string name="question_8">Question8</string>
-    <string name="question_9">Question9</string>
-    <string name="question_10">Question10</string>
-    <string name="percent">% you Correct!</string>
+    <string name="question_france">Paris is the capital of France.</string>
+    <string name="warning_text">Are you sure you want to do this?</string>
+    <string name="show_answer_button">Show Answer</string>
+    <string name="cheat_button">Cheat!</string>
+    <string name="judgement_text">Cheating is wrong!</string>
+
 </resources>
