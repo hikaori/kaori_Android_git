@@ -6,18 +6,18 @@ package com.derrick.park.countryquiz;
 
 public class Questions {
     private int mQuestionStringID;
-    private boolean mQuestionAnswer;
+    private boolean mAnswertrue;
 
     public Questions(int QId,boolean QA) {
         this.mQuestionStringID = QId;
-        this.mQuestionAnswer = QA;
+        this.mAnswertrue = QA;
     }
 
     public int getQuestionStringID() {
         return mQuestionStringID;
     }
 
-    public boolean isQuestionAnswer() {
-        return mQuestionAnswer;
+    public boolean isAnswertrue() {
+        return mAnswertrue;
     }
 }

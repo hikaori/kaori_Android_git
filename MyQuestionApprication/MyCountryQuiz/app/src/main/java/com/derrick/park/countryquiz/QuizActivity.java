@@ -1,7 +1,6 @@
 package com.derrick.park.countryquiz;
 
-import android.content.DialogInterface;
-import android.inputmethodservice.Keyboard;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -10,12 +9,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.security.Key;
-
 public class QuizActivity extends AppCompatActivity {
     private TextView mQuestionArea;
     private Button mTureButton;
     private Button mFalseButton;
+    private Button mCheatButton;
     private Button mPreviousButton;
     private Button mNextButton;
     private int mCurrentQuestionIndex = 0;
@@ -31,6 +29,9 @@ public class QuizActivity extends AppCompatActivity {
     //value for file cycle
     private static final String TAG = "QuizActivity";
     private static final String mLastQuestion = "LastQuestion";
+    //value for create other activity
+    private static final int REQUEST_CODE=0;
+    public static final String EXTRA_key_Cheat = "EXTRA_key_Cheat";
 
 
     @Override
@@ -76,6 +77,19 @@ public class QuizActivity extends AppCompatActivity {
         });
 
 
+        mCheatButton = (Button)findViewById(R.id.cheat_button);
+        mCheatButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                // variable(this Class, go to other Class)
+                Intent i = new Intent(QuizActivity.this, CheatActivity.class);
+                boolean QA=mQuestionBank[mCurrentQuestionIndex].isAnswertrue();
+                i.putExtra(EXTRA_key_Cheat, QA );
+                startActivity(i);
+//                startActivityForResult(i,REQUEST_CODE);
+            }
+        });
+
         mPreviousButton = (Button) findViewById(R.id.previous_button);
         mPreviousButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +113,13 @@ public class QuizActivity extends AppCompatActivity {
         });
     }
 
+    private void goToNextQuestion(){
+        percentage();
+        mCurrentQuestionIndex = (mCurrentQuestionIndex + 1) % mQuestionBank.length;
+        updateQuestion();
+        visibleButton(true);
+    }
+
     protected void updateQuestion() {
         int QuestionNum = mQuestionBank[mCurrentQuestionIndex].getQuestionStringID();
         mQuestionArea.setText(QuestionNum);
@@ -111,7 +132,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void checkAnswer(boolean QAnswer) {
-        if (mQuestionBank[mCurrentQuestionIndex].isQuestionAnswer() == QAnswer) {
+        if (mQuestionBank[mCurrentQuestionIndex].isAnswertrue() == QAnswer) {
             Toast.makeText(QuizActivity.this, R.string.correct_toast, Toast.LENGTH_LONG).show();
             mCorrectedCount++;
         } else {
@@ -126,14 +147,6 @@ public class QuizActivity extends AppCompatActivity {
 //            mPercentArea.setText("your score is"+percentage+"%");
             Toast.makeText(QuizActivity.this, "your score is"+percentage+" %", Toast.LENGTH_LONG).show();
         }
-    }
-
-    private void goToNextQuestion(){
-        mCurrentQuestionIndex = (mCurrentQuestionIndex + 1) % mQuestionBank.length;
-        updateQuestion();
-        visibleButton(true);
-        percentage();
-
     }
 
     // life cycle
