@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CriminalApp</string>
+    <string name="crime_title_label">TITLE</string>
+    <string name="crime_title_hint">crime_title</string>
+    <string name="crime_details_label">DETAIL</string>
+    <string name="crime_solved_label">Solved</string>
+</resources>
