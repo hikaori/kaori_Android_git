@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Fragment_OneFragment</string>
+    <string name="fragment_a">PageA(fragmentA)</string>
+</resources>
