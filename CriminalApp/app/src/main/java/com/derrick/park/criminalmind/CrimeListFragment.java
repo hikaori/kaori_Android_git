@@ -22,7 +22,11 @@ public class CrimeListFragment extends Fragment {
     private RecyclerView mCrimeRecyclerView;
     private CrimeAdapter mAdater;
 
-
+    @Override
+    public void onResume(){
+        super.onResume();
+        updateUI();
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_crime_list, container, false);
@@ -35,8 +39,10 @@ public class CrimeListFragment extends Fragment {
     private void updateUI() {
         CrimeLab crimeLab = CrimeLab.get(getActivity());
         List<Crime> crimes = crimeLab.getCrimes();
+        if(mAdater==null){
         mAdater = new CrimeAdapter(crimes);
-        mCrimeRecyclerView.setAdapter(mAdater);
+        mCrimeRecyclerView.setAdapter(mAdater);}
+        else {mAdater.notifyDataSetChanged();}
     }
 
     private class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
