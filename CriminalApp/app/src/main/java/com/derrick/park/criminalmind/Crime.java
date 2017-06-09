@@ -13,9 +13,8 @@ public class Crime {
     private UUID mId;
     private String mTitle;
     private Date mDate;
-    private int mNumber;
     private boolean mSolved;
-    private boolean mRequiresPolice;
+    private boolean mPoliceRequired;
 
 
     public Crime() {
@@ -51,18 +50,11 @@ public class Crime {
         mSolved = solved;
     }
 
-    public Number getNumber() {
-        return mNumber;
+    public boolean isPoliceRequired() {
+        return mPoliceRequired;
     }
 
-    public void setNumber(int number) {
-        mNumber = number;
-    }
-
-    public void setRequiresPolice(boolean police){
-        this.mRequiresPolice = police;
-    }
-    public boolean isRequiresPolice(){
-     return mRequiresPolice;
+    public void setPoliceRequired(boolean policeRequired) {
+        mPoliceRequired = policeRequired;
     }
 }
