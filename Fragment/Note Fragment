@@ -1,0 +1,18 @@
+* Fragment class mast be extends 'Fragment'.
+* Fragment have indipendent Life Cycle.
+* Fragment must be inside Activity.
+
+    Fragment1---|                  Fragment① --------Activity①
+                |--- Activity     
+    Fragment2---|                  Fragment② --------Activity②
+
+*this code need for fragment inside Activity.
+  // INSTANTIATE FRAGMENT
+  Fragment1 f1 = new Fragment1();
+
+  FragmentManager fm = getSupportFragmentManager();
+  FragmentTransaction ft = fm.beginTransaction();
+  ///**** Fragment ver should be same ver as Fragment Class's ver.
+  ft.add(R.id.fr1_id,f1);
+  ft.addToBackStack("f1");
+  ft.commit();
