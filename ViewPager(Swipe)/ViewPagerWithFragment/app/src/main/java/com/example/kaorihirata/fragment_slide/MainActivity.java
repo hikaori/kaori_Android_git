@@ -1,7 +1,7 @@
 package com.example.kaorihirata.fragment_slide;
 
 //*reference you tube ▼
-
+//https://www.youtube.com/watch?v=iJ178Z8U7FM&t=19s
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
