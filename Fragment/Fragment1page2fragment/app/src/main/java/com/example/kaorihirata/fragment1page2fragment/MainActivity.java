@@ -11,6 +11,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**1.set Button
+ * 2.set OnClickListener
+ * // create fragment xml / fragment class
+ * 3.set 'FragmentManager' / 'fragmentTransaction'
+ *   (connect fragment to the main class)
+ *
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     Button B1,B2;
@@ -23,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         B1= (Button) findViewById(R.id.b1);
         B2= (Button) findViewById(R.id.b2);
 
-        // FOR WHEN CLICK BUTTON
+        // CLICK BUTTON FRAGMENT APPEAR
         B1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // CLICK BUTTON FRAGMENT APPEAR
         B2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
