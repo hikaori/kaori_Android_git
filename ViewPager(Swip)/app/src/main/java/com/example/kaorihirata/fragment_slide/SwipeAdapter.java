@@ -40,7 +40,7 @@ public class SwipeAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         mlayoutInflater=(LayoutInflater) mctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View item_view = mlayoutInflater.inflate(R.layout.swip_layout,container,false);
+        View item_view = mlayoutInflater.inflate(R.layout.swipe_layout,container,false);
         ImageView imageView =(ImageView) item_view.findViewById(R.id.imageView1);
         TextView textView =(TextView) item_view.findViewById(R.id.img_count);
 
