@@ -1,0 +1,38 @@
+ViewPager▼
+Layout manager that allows the user to flip left and right through pages of data.
+You supply an implementation of a PagerAdapter to generate the pages that the view shows.
+
+ViewPager is most often used in conjunction with Fragment, 
+which is a convenient way to supply and manage the lifecycle of each page.
+There are standard adapters implemented for using fragments with the ViewPager,
+which cover the most common use cases. These are FragmentPagerAdapter and FragmentStatePagerAdapter.
+
+＊ViewPager＊
+  XML
+    <android.support.v4.view.ViewPager
+
+    >
+    </android.support.v4.view.ViewPager>
+
+  EXTENDS
+    Adapter(PagerAdapter/FragmentPagerAdapter/FragmentStatePagerAdapter)
+
+
+
+■ViewPager(Nomal)
+  used Adapter : PagerAdapter 
+               ↓↓ MUST OVERRIDE ↓↓
+                'getCount()'  
+                'isViewFromObject(View, Object)' 
+                'instantiateItem(ViewGroup, int)' 
+                'destroyItem(ViewGroup, int, Object)'
+
+  reference you tube :https://www.youtube.com/watch?v=nL0k2usU7I8&t=759s
+  
+■ViewPagerWithFragment
+  used Adapter : FragmentStatePagerAdapter
+                ↓↓ MUST OVERRIDE ↓↓
+                'getItem(int position)' 
+                'getCount()'
+                
+   reference you tube :https://www.youtube.com/watch?v=iJ178Z8U7FM&t=19s
